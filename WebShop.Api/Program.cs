@@ -1,13 +1,16 @@
+using FastEndpoints;
 using WebShop.Books;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddFastEndpoints();
+
+builder.Services.AddBookServices();
 
 var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.MapBookEndpoints();
+app.UseFastEndpoints();
 
 app.Run();
