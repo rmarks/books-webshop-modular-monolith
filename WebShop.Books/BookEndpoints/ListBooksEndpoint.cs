@@ -9,8 +9,6 @@ public class ListBooksResponse
     public IEnumerable<BookDto> Books { get; set; } = default!;
 }
 
-public record BookDto(int Id, string Title, string Author, decimal UnitPrice);
-
 internal class ListBooksEndpoint(BooksDbContext dbContext) : EndpointWithoutRequest<ListBooksResponse>
 {
     private readonly BooksDbContext _dbContext = dbContext;
@@ -25,7 +23,7 @@ internal class ListBooksEndpoint(BooksDbContext dbContext) : EndpointWithoutRequ
     {
         var books = await _dbContext.Books
             .AsNoTracking()
-            .Select(b => new BookDto(b.Id, b.Title, b.Author, b.UnitPrice))
+            .Select(b => new BookDto(b.Id, b.Title, b.Author, b.Price))
             .ToListAsync();
 
         await Send.OkAsync(new ListBooksResponse

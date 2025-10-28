@@ -18,7 +18,7 @@ internal class BookConfiguration : IEntityTypeConfiguration<Book>
             .IsRequired()
             .HasMaxLength(100);
 
-        builder.Property(b => b.UnitPrice)
+        builder.Property(b => b.Price)
             .HasPrecision(9,2);
 
         builder.HasData(

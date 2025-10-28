@@ -4,3 +4,39 @@ GET {{WebShop.Api_HostAddress}}/books/
 Accept: application/json
 
 ###
+
+GET {{WebShop.Api_HostAddress}}/books/1
+Accept: application/json
+
+###
+
+POST {{WebShop.Api_HostAddress}}/books/
+Accept: application/json
+Content-Type: application/json
+{
+    "Title": ".NET MAUI in Action",
+    "Author": "Matt Goldman",
+    "UnitPrice": 25
+}
+
+###
+
+@AddedBookId = 6
+# testing location header
+GET {{WebShop.Api_HostAddress}}/books/{{AddedBookId}}
+Accept: application/json
+
+###
+
+# update price
+POST {{WebShop.Api_HostAddress}}/books/{{AddedBookId}}/price
+Accept: application/json
+Content-Type: application/json
+{
+    "NewPrice": 35.00
+}
+
+###
+
+DELETE {{WebShop.Api_HostAddress}}/books/{{AddedBookId}}
+Accept: application/json
