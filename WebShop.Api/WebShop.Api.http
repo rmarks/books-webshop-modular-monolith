@@ -1,5 +1,4 @@
-# @WebShop.Api_HostAddress = https://localhost:7233
-@WebShop.Api_HostAddress = http://localhost:5081
+@WebShop.Api_HostAddress = https://localhost:7233
 
 GET {{WebShop.Api_HostAddress}}/books/
 Accept: application/json
@@ -49,8 +48,9 @@ POST {{WebShop.Api_HostAddress}}/users
 Accept: application/json
 Content-Type: application/json
 {
-    "email": "test@test.com",
-    "password": "Pass@word1"
+    "email": "john@test.com",
+    "password": "Pass@word1",
+    "fullName": "John Smith"
 }
 
 ###
@@ -59,6 +59,26 @@ POST {{WebShop.Api_HostAddress}}/users/login
 Accept: application/json
 Content-Type: application/json
 {
-    "email": "test@test.com",
+    "email": "john@test.com",
     "password": "Pass@word1"
 }
+
+###
+# Cart
+
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NjE4MjkyMTIsIkVtYWlsQWRkcmVzcyI6ImpvaG5AdGVzdC5jb20iLCJleHAiOjE3NjE4MzI4MTIsIm5iZiI6MTc2MTgyOTIxMn0.JzF5asQBVs6eG_ldYjwR9SJkWIu10IqQfB24tyihnrI
+
+POST {{WebShop.Api_HostAddress}}/cart
+Accept: text/plain
+Authorization: Bearer {{token}}
+Content-Type: application/json
+{
+    "bookId": 3,
+    "quantity": 1
+}
+
+###
+
+GET {{WebShop.Api_HostAddress}}/cart
+Accept: application/json
+Authorization: Bearer {{token}}

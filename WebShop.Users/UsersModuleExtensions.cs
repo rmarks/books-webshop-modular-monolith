@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebShop.Users.Data;
+using WebShop.Users.Domain;
 
 namespace WebShop.Users;
 

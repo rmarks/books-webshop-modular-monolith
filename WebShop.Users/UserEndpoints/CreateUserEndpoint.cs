@@ -1,9 +1,10 @@
 ﻿using FastEndpoints;
 using Microsoft.AspNetCore.Identity;
+using WebShop.Users.Domain;
 
 namespace WebShop.Users.UserEndpoints;
 
-public record CreateUserRequest(string Email, string Password);
+public record CreateUserRequest(string Email, string Password, string? FullName);
 
 internal class CreateUserEndpoint(UserManager<ApplicationUser> userManager) : Endpoint<CreateUserRequest>
 {
@@ -20,7 +21,8 @@ internal class CreateUserEndpoint(UserManager<ApplicationUser> userManager) : En
         var newUser = new ApplicationUser
         {
             Email = req.Email,
-            UserName = req.Email
+            UserName = req.Email,
+            FullName = req.FullName
         };
 
         await _userManager.CreateAsync(newUser, req.Password);

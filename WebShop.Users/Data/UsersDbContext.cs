@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using WebShop.Users.Domain;
 
 namespace WebShop.Users.Data;
 
@@ -14,6 +16,8 @@ internal class UsersDbContext : IdentityDbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.HasDefaultSchema("Users");
+
+        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         
         base.OnModelCreating(builder);
     }
