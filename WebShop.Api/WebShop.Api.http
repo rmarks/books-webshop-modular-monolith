@@ -66,7 +66,7 @@ Content-Type: application/json
 ###
 # Cart
 
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NjE4MjkyMTIsIkVtYWlsQWRkcmVzcyI6ImpvaG5AdGVzdC5jb20iLCJleHAiOjE3NjE4MzI4MTIsIm5iZiI6MTc2MTgyOTIxMn0.JzF5asQBVs6eG_ldYjwR9SJkWIu10IqQfB24tyihnrI
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NjE4Mzc2NzQsIkVtYWlsQWRkcmVzcyI6ImpvaG5AdGVzdC5jb20iLCJleHAiOjE3NjE4NDEyNzQsIm5iZiI6MTc2MTgzNzY3NH0.AsFCw4GROpnoRSSYnTjir3Mw57j3HR_Dq2DSP3lIhxI
 
 POST {{WebShop.Api_HostAddress}}/cart
 Accept: text/plain

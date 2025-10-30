@@ -1,6 +1,9 @@
-﻿using FastEndpoints;
+﻿using Ardalis.Result;
+using FastEndpoints;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using WebShop.Books.Contracts;
 using WebShop.Users.Data;
 using WebShop.Users.Domain;
 
@@ -8,9 +11,17 @@ namespace WebShop.Users.CartEndpoints;
 
 public record AddCartItemRequest(int BookId, int Quantity);
 
-internal class AddCartItemEndpoint(UsersDbContext dbContext) : Endpoint<AddCartItemRequest>
+internal class AddCartItemEndpoint : Endpoint<AddCartItemRequest>
 {
-    private readonly UsersDbContext _dbContext = dbContext;
+    private readonly UsersDbContext _dbContext;
+    private readonly IMediator _mediator;
+
+    public AddCartItemEndpoint(UsersDbContext dbContext,
+                               IMediator mediator)
+    {
+        _dbContext = dbContext;
+        _mediator = mediator;
+    }
 
     public override void Configure()
     {
@@ -32,7 +43,21 @@ internal class AddCartItemEndpoint(UsersDbContext dbContext) : Endpoint<AddCartI
             return;
         }
 
-        var newCartItem = new CartItem(req.BookId, "description", req.Quantity, 0m);
+        // getting book details from Books Module
+        var query = new BookDetailsQuery(req.BookId);
+        var result = await _mediator.Send(query);
+
+        if (result.Status == ResultStatus.NotFound)
+        {
+            await Send.NotFoundAsync();
+            return;
+        }
+
+        var bookDetails = result.Value;
+
+        string description = $"{bookDetails.Title} by {bookDetails.Author}";
+
+        var newCartItem = new CartItem(req.BookId, description, req.Quantity, bookDetails.Price);
         user.AddItemToCart(newCartItem);
         await _dbContext.SaveChangesAsync();
 

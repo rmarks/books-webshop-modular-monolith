@@ -18,6 +18,8 @@ public class ApplicationUser : IdentityUser
         if (existingItem is not null)
         {
             existingItem.UpdateQuantity(existingItem.Quantity + item.Quantity);
+            existingItem.UpdateDescription(item.Description);
+            existingItem.UpdateUnitPrice(item.UnitPrice);
             return;
         }
 

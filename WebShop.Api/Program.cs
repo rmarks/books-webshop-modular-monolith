@@ -1,5 +1,6 @@
 using FastEndpoints;
 using FastEndpoints.Security;
+using System.Reflection;
 using WebShop.Books;
 using WebShop.Users;
 
@@ -9,9 +10,12 @@ builder.Services.AddFastEndpoints()
     .AddAuthenticationJwtBearer(o => o.SigningKey = builder.Configuration["Auth:JwtSecret"]!)
     .AddAuthorization();
 
+List<Assembly> mediatRAssemblies = [];
 builder.Services
-    .AddBookServices(builder.Configuration)
+    .AddBookServices(builder.Configuration, mediatRAssemblies)
     .AddUserServices(builder.Configuration);
+
+builder.Services.AddMediatR(conf => conf.RegisterServicesFromAssemblies(mediatRAssemblies.ToArray()));
 
 var app = builder.Build();
 
