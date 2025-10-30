@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FastEndpoints" Version="7.0.1" />
+    <PackageReference Include="FastEndpoints" Version="7.1.0" />
+    <PackageReference Include="FastEndpoints.Security" Version="7.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.10">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -16,6 +17,7 @@
   
   <ItemGroup>
     <ProjectReference Include="..\WebShop.Books\WebShop.Books.csproj" />
+    <ProjectReference Include="..\WebShop.Users\WebShop.Users.csproj" />
   </ItemGroup>
 
 </Project>

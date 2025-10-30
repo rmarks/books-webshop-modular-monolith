@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Books Module", "Books Modul
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShop.Books", "WebShop.Books\WebShop.Books.csproj", "{730BE4CF-CDBB-4375-AAC3-915CFBDDE67C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users Module", "Users Module", "{4CC156AF-F093-4EBF-8DBF-76BA99E5446A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShop.Users", "WebShop.Users\WebShop.Users.csproj", "{8DDB5826-5551-4D43-9AF1-988E9B2B7794}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +27,17 @@ Global
 		{730BE4CF-CDBB-4375-AAC3-915CFBDDE67C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{730BE4CF-CDBB-4375-AAC3-915CFBDDE67C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{730BE4CF-CDBB-4375-AAC3-915CFBDDE67C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DDB5826-5551-4D43-9AF1-988E9B2B7794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DDB5826-5551-4D43-9AF1-988E9B2B7794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DDB5826-5551-4D43-9AF1-988E9B2B7794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DDB5826-5551-4D43-9AF1-988E9B2B7794}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{730BE4CF-CDBB-4375-AAC3-915CFBDDE67C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{8DDB5826-5551-4D43-9AF1-988E9B2B7794} = {4CC156AF-F093-4EBF-8DBF-76BA99E5446A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {849699B5-1BC5-4107-8CCA-45AEF4B18A92}

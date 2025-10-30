@@ -1,3 +1,4 @@
+# @WebShop.Api_HostAddress = https://localhost:7233
 @WebShop.Api_HostAddress = http://localhost:5081
 
 GET {{WebShop.Api_HostAddress}}/books/
@@ -40,3 +41,24 @@ Content-Type: application/json
 
 DELETE {{WebShop.Api_HostAddress}}/books/{{AddedBookId}}
 Accept: application/json
+
+###
+# Users
+
+POST {{WebShop.Api_HostAddress}}/users
+Accept: application/json
+Content-Type: application/json
+{
+    "email": "test@test.com",
+    "password": "Pass@word1"
+}
+
+###
+
+POST {{WebShop.Api_HostAddress}}/users/login
+Accept: application/json
+Content-Type: application/json
+{
+    "email": "test@test.com",
+    "password": "Pass@word1"
+}
