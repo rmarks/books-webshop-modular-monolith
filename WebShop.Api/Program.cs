@@ -12,7 +12,7 @@ builder.Services.AddFastEndpoints()
 
 List<Assembly> mediatRAssemblies = [];
 builder.Services
-    .AddBookServices(builder.Configuration, mediatRAssemblies)
+    .AddBooksModuleServices(builder.Configuration, mediatRAssemblies)
     .AddUserServices(builder.Configuration);
 
 builder.Services.AddMediatR(conf => conf.RegisterServicesFromAssemblies(mediatRAssemblies.ToArray()));

@@ -2,12 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using WebShop.Books.Data;
 
-namespace WebShop.Books.BookEndpoints;
+namespace WebShop.Books.Endpoints;
 
-public class ListBooksResponse
-{
-    public IEnumerable<BookDto> Books { get; set; } = default!;
-}
+public record ListBooksResponse(IEnumerable<BookDto> Books);
 
 internal class ListBooksEndpoint(BooksDbContext dbContext) : EndpointWithoutRequest<ListBooksResponse>
 {
@@ -26,9 +23,6 @@ internal class ListBooksEndpoint(BooksDbContext dbContext) : EndpointWithoutRequ
             .Select(b => new BookDto(b.Id, b.Title, b.Author, b.Price))
             .ToListAsync();
 
-        await Send.OkAsync(new ListBooksResponse
-        {
-            Books = books
-        });
+        await Send.OkAsync(new ListBooksResponse(books));
     }
 }

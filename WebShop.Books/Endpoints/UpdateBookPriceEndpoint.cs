@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebShop.Books.Data;
 
-namespace WebShop.Books.BookEndpoints;
+namespace WebShop.Books.Endpoints;
 
 public record UpdateBookPriceRequest(int Id, decimal NewPrice);
 
@@ -18,7 +18,7 @@ internal class UpdateBookPriceEndpoint(BooksDbContext dbContext) : Endpoint<Upda
 
     public override async Task HandleAsync(UpdateBookPriceRequest req, CancellationToken ct)
     {
-        var book = await _dbContext.Books.SingleOrDefaultAsync(b => b.Id == req.Id);
+        var book = await _dbContext.Books.FirstOrDefaultAsync(b => b.Id == req.Id);
 
         if (book is null)
         {

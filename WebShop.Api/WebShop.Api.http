@@ -16,12 +16,12 @@ Content-Type: application/json
 {
     "Title": ".NET MAUI in Action",
     "Author": "Matt Goldman",
-    "UnitPrice": 25
+    "Price": 25
 }
 
 ###
 
-@AddedBookId = 6
+@AddedBookId = 7
 # testing location header
 GET {{WebShop.Api_HostAddress}}/books/{{AddedBookId}}
 Accept: application/json

@@ -14,7 +14,7 @@ internal class BookDetailsQueryHandler(BooksDbContext dbContext) : IRequestHandl
     {
         var book = await _dbContext.Books
             .AsNoTracking()
-            .SingleOrDefaultAsync(b => b.Id == request.BookId);
+            .FirstOrDefaultAsync(b => b.Id == request.BookId);
 
         if (book is null) return Result.NotFound();
 

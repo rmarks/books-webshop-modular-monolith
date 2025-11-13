@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebShop.Books.Data;
 
-namespace WebShop.Books.BookEndpoints;
+namespace WebShop.Books.Endpoints;
 
 public record DeleteBookRequest(int Id);
 
@@ -18,7 +18,7 @@ internal class DeleteBookEndpoint(BooksDbContext dbContext) : Endpoint<DeleteBoo
 
     public override async Task HandleAsync(DeleteBookRequest req, CancellationToken ct)
     {
-        var book = await _dbContext.Books.SingleOrDefaultAsync(b => b.Id == req.Id);
+        var book = await _dbContext.Books.FirstOrDefaultAsync(b => b.Id == req.Id);
 
         if (book is null)
         {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebShop.Books.Data;
 
-namespace WebShop.Books.BookEndpoints;
+namespace WebShop.Books.Endpoints;
 
 public record GetBookByIdRequest(int Id);
 
@@ -22,7 +22,7 @@ internal class GetBookByIdEndpoint(BooksDbContext dbContext) : Endpoint<GetBookB
             .AsNoTracking()
             .Where(b => b.Id == req.Id)
             .Select(b => new BookDto(b.Id, b.Title, b.Author, b.Price))
-            .SingleOrDefaultAsync();
+            .FirstOrDefaultAsync();
 
         if (bookDto is null)
         {

@@ -22,8 +22,8 @@ internal class BookConfiguration : IEntityTypeConfiguration<Book>
             .HasPrecision(9,2);
 
         builder.HasData(
-            new Book(1, ".NET Core in Action", "Dustin Metzgar", 19m),
-            new Book(2, "ASP.NET Core in Action", "Andrew Lock", 21m),
-            new Book(3, "Blazor in Action", "Chris Sainty", 20m));
+            new Book(".NET Core in Action", "Dustin Metzgar", 19m, 1),
+            new Book("ASP.NET Core in Action", "Andrew Lock", 21m, 2),
+            new Book("Blazor in Action", "Chris Sainty", 20m, 3));
     }
 }

@@ -2,7 +2,7 @@
 using WebShop.Books.Data;
 using WebShop.Books.Domain;
 
-namespace WebShop.Books.BookEndpoints;
+namespace WebShop.Books.Endpoints;
 
 public record CreateBookRequest(string Title, string Author, decimal Price);
 
@@ -18,7 +18,7 @@ internal class CreateBookEndpoint(BooksDbContext dbContext) : Endpoint<CreateBoo
 
     public override async Task HandleAsync(CreateBookRequest req, CancellationToken ct)
     {
-        var newBook = new Book(0, req.Title, req.Author, req.Price);
+        var newBook = new Book(req.Title, req.Author, req.Price);
 
         await _dbContext.Books.AddAsync(newBook);
         await _dbContext.SaveChangesAsync();
