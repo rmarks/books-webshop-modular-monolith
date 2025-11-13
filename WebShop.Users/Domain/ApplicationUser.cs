@@ -25,4 +25,9 @@ public class ApplicationUser : IdentityUser
 
         _cartItems.Add(item);
     }
+
+    public void UpdateFullName(string fullName)
+    {
+        FullName = Guard.Against.NullOrEmpty(fullName);
+    }
 }
