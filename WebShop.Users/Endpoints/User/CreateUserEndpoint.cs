@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using WebShop.Users.Domain;
 
-namespace WebShop.Users.UserEndpoints;
+namespace WebShop.Users.Endpoints.User;
 
 public record CreateUserRequest(string Email, string Password, string? FullName);
 

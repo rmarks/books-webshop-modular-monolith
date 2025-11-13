@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using WebShop.Users.Data;
 
-namespace WebShop.Users.CartEndpoints;
+namespace WebShop.Users.Endpoints.Cart;
 
 public record ListCartItemsResponse(IEnumerable<CartItemDto> CartItems);
 

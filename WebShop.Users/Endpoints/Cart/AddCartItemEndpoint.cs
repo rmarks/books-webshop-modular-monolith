@@ -7,7 +7,7 @@ using WebShop.Books.Contracts;
 using WebShop.Users.Data;
 using WebShop.Users.Domain;
 
-namespace WebShop.Users.CartEndpoints;
+namespace WebShop.Users.Endpoints.Cart;
 
 public record AddCartItemRequest(int BookId, int Quantity);
 

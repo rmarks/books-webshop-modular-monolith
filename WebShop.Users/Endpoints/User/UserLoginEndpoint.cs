@@ -3,7 +3,7 @@ using FastEndpoints.Security;
 using Microsoft.AspNetCore.Identity;
 using WebShop.Users.Domain;
 
-namespace WebShop.Users.UserEndpoints;
+namespace WebShop.Users.Endpoints.User;
 
 public record UserLoginRequest(string Email, string Password);
 

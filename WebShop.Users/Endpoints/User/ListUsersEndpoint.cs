@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebShop.Users.Data;
 
-namespace WebShop.Users.UserEndpoints;
+namespace WebShop.Users.Endpoints.User;
 
 internal record ListUsersResponse(IEnumerable<UserDto> Users);
 internal record UserDto(string? UserName, string? Email, string? FullName);
