@@ -1,5 +1,7 @@
 @WebShop.Api_HostAddress = https://localhost:7233
 
+# Books
+
 GET {{WebShop.Api_HostAddress}}/books/
 Accept: application/json
 
@@ -42,7 +44,13 @@ DELETE {{WebShop.Api_HostAddress}}/books/{{AddedBookId}}
 Accept: application/json
 
 ###
+
 # Users
+
+GET {{WebShop.Api_HostAddress}}/users
+Accept: application/json
+
+###
 
 POST {{WebShop.Api_HostAddress}}/users
 Accept: application/json
@@ -64,6 +72,27 @@ Content-Type: application/json
 }
 
 ###
+
+POST {{WebShop.Api_HostAddress}}/users/login
+Accept: application/json
+Content-Type: application/json
+{
+    "email": "raul@test.com",
+    "password": "Pass@word2"
+}
+
+###
+
+POST {{WebShop.Api_HostAddress}}/users/login
+Accept: application/json
+Content-Type: application/json
+{
+    "email": "test@test.com",
+    "password": "Pass@word1"
+}
+
+###
+
 # Cart
 
 @token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NjE4Mzc2NzQsIkVtYWlsQWRkcmVzcyI6ImpvaG5AdGVzdC5jb20iLCJleHAiOjE3NjE4NDEyNzQsIm5iZiI6MTc2MTgzNzY3NH0.AsFCw4GROpnoRSSYnTjir3Mw57j3HR_Dq2DSP3lIhxI
